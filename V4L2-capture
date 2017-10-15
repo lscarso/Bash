@@ -1,0 +1,14 @@
+#!/bin/sh
+
+TODAY=$( date +%Y%m%d )
+NOW=$( date +%H:%M )
+
+transcode \
+        -x v4l2=resync_margin=1:resync_interval=250,v4l2 \
+        -g 640x480 \
+        -i /dev/video0 -p /dev/dsp \
+        -e 32000,16,2 -N 0x1 \
+        -J resample,levels,smartyuv,pv \
+        -w 4000 -y ffmpeg -F mjpeg \
+        -o tvrecord-${TODAY}-${NOW}.avi \
+        --avi_limit 1536
