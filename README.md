@@ -44,3 +44,29 @@ YOU NEED Transcode > 0.6.11 (because of "tcrequant")
   ```
   growisofs -Z /dev/scd0 -dvd-video -udf movie-dvd
   ```
+
+# Merge Video files
+```
+avimerge -o [outputfile] -i [inputfiles]
+```
+or
+```
+avconv -i concat:Videos/Video01.avi\|Videos/Video02.avi -c copy Videos/VideoTot.avi
+```
+
+# DIVX to DVD
+```
+transcode -i [inputfile] -y ffmpeg --export_prof dvd-pal --export_asr 3 -o [titolo] -D0 -s2 -m [titolo].ac3 -J modfps=clonetype=3 --export_fps 25 -a[lingua]
+mplex -f 8 -o [titolo].mpg [titolo].m2v [titolo].ac3
+dvdauthor -o dvd -t [titolo].mpg
+dvdauthor -o dvd -T
+growisofs -dvd-compat -Z /dev/sr0 -dvd-video -V [titolo] ./dvd
+```
+or 
+```
+ffmpeg -i my_video.avi -target dvd -aspect 16:9 -sameq my_dvd_video.mpg
+mkdir DVD
+dvdauthor --title -f my_dvd_video.mpg -o DVD
+dvdauthor -T -o DVD
+growisofs -dvd-compat -dvd-video -speed=4 -Z /dev/dvd ./DVD/*
+```
