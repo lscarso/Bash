@@ -70,3 +70,20 @@ dvdauthor --title -f my_dvd_video.mpg -o DVD
 dvdauthor -T -o DVD
 growisofs -dvd-compat -dvd-video -speed=4 -Z /dev/dvd ./DVD/*
 ```
+
+# TV
+```
+gst-launch-0.10 -v v4l2src device=/dev/video0 ! autovideosink
+```
+  - MUTE
+    ```
+    v4lctl volume mute off
+    ```
+  - AUDIO
+    ```
+    v4lctl audio stereo
+    ```
+  - Change CHANNEL
+    ```
+    v4lctl setchannel 55
+    ```
