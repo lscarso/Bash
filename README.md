@@ -21,14 +21,14 @@ YOU NEED Transcode > 0.6.11 (because of "tcrequant")
     tcrequant -i ofile.m2v -o movie.m2v -f 1.13924050632911392405
     ```
     
-  - Multiplexing the Audiotrack and the Videotrack:
-    ```
-    tcmplex -i movie.m2v -p ofile.ac3 -m d -o movie-new.vob
-    ```
-    or
-    ```
-    mplex -f 8 -o movie-new.vob  movie.m2v ofile.ac3
-    ```
+- Multiplexing the Audiotrack and the Videotrack:
+  ```
+  tcmplex -i movie.m2v -p ofile.ac3 -m d -o movie-new.vob
+  ```
+  or
+  ```
+  mplex -f 8 -o movie-new.vob  movie.m2v ofile.ac3
+  ```
 
 - Make the DVD structure:
   ```
