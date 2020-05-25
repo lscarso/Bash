@@ -9,6 +9,7 @@ YOU NEED Transcode > 0.6.11 (because of "tcrequant")
   ("-a" select the Audiotrack (English/Italian...") 
 
 - Refactor:
+
   Now you know the Size of the Video and Audio. For a DVD we can use 4482Mbyte - but because "dvdauthor" and "mplex" adds some MByte, we can only use ~4300Mbyte 
   - Calculate the "requantfactor" (for shrinking):
     ```
