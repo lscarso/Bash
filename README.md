@@ -1,7 +1,7 @@
 # DVD9 to DVD5 (dvd925)
 YOU NEED Transcode > 0.6.11 (because of "tcrequant")
 
-## Rip the Audio and the Video:
+- Rip the Audio and the Video:
 tccat -i /dev/dvd -T t -L | tcextract -t vob -x mpeg2 > ofile.m2v 
 tccat -i /dev/dvd -T t -L | tcextract -t vob -x ac3 -a 0 > ofile.ac3 
 
