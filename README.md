@@ -2,17 +2,19 @@
 YOU NEED Transcode > 0.6.11 (because of "tcrequant")
 
 - Rip the Audio and the Video:
-```
+  ```
   tccat -i /dev/dvd -T t -L | tcextract -t vob -x mpeg2 > ofile.m2v 
   tccat -i /dev/dvd -T t -L | tcextract -t vob -x ac3 -a 0 > ofile.ac3 
-```
+  ```
   ("-a" select the Audiotrack (English/Italian...") 
 
-## Refactor
+- Refactor
 Now you know the Size of the Video and Audio. For a DVD we can use 4482Mbyte - but because "dvdauthor" and "mplex" adds some MByte, we can only use ~4300Mbyte 
-### Calculate the "requantfactor" (for shrinking):
-Videosize / (4300 - Audiosize) = requantfactor 
-e.g.: 4500 / (4300 - 350) = 1.13924050632911392405
+  - Calculate the "requantfactor" (for shrinking):
+    ```
+    Videosize / (4300 - Audiosize) = requantfactor 
+    ```
+    e.g.: 4500 / (4300 - 350) = 1.13924050632911392405
 
 ### Shrink the Video:
 tcrequant -i ofile.m2v -o movie.m2v -f 1.13924050632911392405
